@@ -164,26 +164,27 @@ def linkEval(net, nodes, evts, t):
 
 def mobileNet(name, configFile):
 
-    initSocket('s')
+    # initSocket('s')
 
-    print("*** Starting to initialize the emulation topology ***")
-    topos = requests.get('http://'+DATA_HOST+':'+DATA_PORT+'/api/settings/init')
-    if topos.status_code != 200:
+    #print("*** Starting to initialize the emulation topology ***")
+    #topos = requests.get('http://'+DATA_HOST+':'+DATA_PORT+'/api/settings/init')
+    #if topos.status_code != 200:
         # This means something went wrong.
-        raise ApiError('GET /tasks/ {}'.format(topos.status_code))
-    sats = topos.json()['satellites']
-    bass = topos.json()['basestations']
+    #    raise ApiError('GET /tasks/ {}'.format(topos.status_code))
+    #sats = topos.json()['satellites']
+    #bass = topos.json()['basestations']
 
-    print sats
-    print bass
+    #print sats
+    #print bass
 
-    # print("*** Loading the parameters for emulation ***\n")
-    # Parsing the JSON file
-    # with open(configFile, 'r') as read_file:
-    #     paras = json.load(read_file)
-    # sats = paras['SatcomScnDef']['sateDef']
-    # usrs = paras['SatcomScnDef']['userDef']
-    # lnks = paras['SatcomScnDef']['scnLinkDef']
+    #print("*** Loading the parameters for emulation ***\n")
+    print("*** Loading the parameters for emulation from sample.json ***\n")
+    #Parsing the JSON file
+    with open(configFile, 'r') as read_file:
+         paras = json.load(read_file)
+    sats = paras['SatcomScnDef']['sateDef']
+    usrs = paras['SatcomScnDef']['userDef']
+    lnks = paras['SatcomScnDef']['scnLinkDef']
 
     # # Initializing the Mininet network
     net = Mininet(controller=Controller, link=TCLink, autoSetMacs=True)
