@@ -1,0 +1,34 @@
+{	
+	"SimScript" : {
+		"scnLinkEvnt":[
+			{"srcType":0,"srcID":2,"destType":1,"destID":28874,
+				  "actionlist":[
+				  	{"Type":"propDelayChange","Time": 0.0,"para1":"70.0ms","para2":"200.0","para3":"1223.9"},
+					{"Type":"throughputChange","Time":0.0,"para1":"15.0Mbps","para2":"1223.9","para3":"1223.9"},
+					{"Type":"throughputChange","Time":15.0,"para1":"10.0Mbps","para2":"1223.9","para3":"1223.9"}
+				  ]	
+			},
+			{"srcType":0,"srcID":2,"destType":1,"destID":28190,
+				  "actionlist":[
+					{"Type":"throughputChange","Time":0.0,"para1":"20.0Mbps","para2":"1223.9","para3":"1223.9"},
+					{"Type":"throughputChange","Time": 10.0,"para1":"10.0Mbps","para2":"1223.9","para3":"1223.9"}
+				  ]
+			},
+			{"srcType":0,"srcID":2,"destType":1,"destID":28190,
+				  "actionlist":[
+					{"Type":"removeLink","Time":1.0,"para1":"20.0Mbps","para2":"1223.9","para3":"1223.9"},
+					{"Type":"establishLink","Time": 5.0,"para1":"10.0Mbps","para2":"1223.9","para3":"1223.9"}
+				  ]
+			}  
+				  
+		],
+		"scnappEvnt":[
+			{"AppName":"app1",
+				"actionlist":[
+					{"Type":"startSenddata","Time":5.0,"para1":"30.0MiB","para2":"1223.9","para3":"1223.9"},
+					{"Type":"stopSenddata","Time":15.0,"para1":"0.0","para2":"1223.9","para3":"1223.9"}
+				]
+			}
+		]
+	}
+}
