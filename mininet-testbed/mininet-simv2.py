@@ -227,6 +227,7 @@ def mobileNet(name, configFile):
     #    net.addLink(nodes[bas_id], nodes[swi_id])
     	
 	# Create sate nodes
+    print("*** Creating sat nodes ***")
     for sat in sats:
         sat_id = '1' + str(sat['satID'])
         host_id = 'h-' + sat_id 
@@ -238,6 +239,7 @@ def mobileNet(name, configFile):
         net.addLink(nodes[host_id], nodes[swi_id])		
         print(sat_id, host_id, swi_id)
 	
+    print("*** Creating non-sat nodes ***")
     for usr in usrs:
         usr_id = '0' + str(usr['ID'])
         host_id = 'h-' + usr_id
@@ -250,6 +252,7 @@ def mobileNet(name, configFile):
         print(usr_id, host_id, swi_id)
 		
     # Creating links
+    print("*** Creating links ***")
     for lnk in lnks:
         src_id = str(lnk['Config'][0]['srcType'])+str(lnk['Config'][0]['srcID'])
         des_id = str(lnk['Config'][1]['destType'])+str(lnk['Config'][1]['destID'])
@@ -257,7 +260,7 @@ def mobileNet(name, configFile):
         node_s = nodes['s-' + src_id]
         node_d = nodes['s-' + des_id]
         net.addLink(node_s, node_d, bw=100)
-        tcInfo.setdefault(src_id+'->'+des_id, {})
+        # tcInfo.setdefault(src_id+'->'+des_id, {})
         print('s-'+src_id+'->'+'s-'+des_id)
     #     break
 
