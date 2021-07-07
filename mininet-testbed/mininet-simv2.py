@@ -238,7 +238,7 @@ def mobileNet(name, configFile):
         net.addLink(nodes[sat_id], nodes[swi_id])		
         print(sat_id, host_id, swi_id)
 	
-    for usr in usrs
+    for usr in usrs:
         usr_id = '0' + str(usr['ID'])
         host_id = usr_id + '-host'
         node = net.addHost(host_id)
