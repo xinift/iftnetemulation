@@ -229,10 +229,10 @@ def mobileNet(name, configFile):
 	# Create sate nodes
     for sat in sats:
         sat_id = '1' + str(sat['satID'])
-        host_id = sat_id + '-host'
+        host_id = 'h-' + sat_id 
         node = net.addHost(host_id, position = '50,150,0')
         nodes[host_id] = node
-        swi_id = sat_id + '-swi'
+        swi_id = 's-' + sat_id
         node2 = net.addSwitch(swi_id)
         nodes[swi_id] = node2
         net.addLink(nodes[host_id], nodes[swi_id])		
@@ -240,10 +240,10 @@ def mobileNet(name, configFile):
 	
     for usr in usrs:
         usr_id = '0' + str(usr['ID'])
-        host_id = usr_id + '-host'
+        host_id = 'h-' + usr_id
         node = net.addHost(host_id, position = '50,150,0')
         nodes[host_id] = node
-        swi_id = usr_id + '-swi'
+        swi_id = 's-' + usr_id
         node2 = net.addSwitch(swi_id)
         nodes[swi_id] = node2
         net.addLink(nodes[host_id], nodes[swi_id])		
@@ -254,11 +254,11 @@ def mobileNet(name, configFile):
         src_id = str(lnk['Config'][0]['srcType'])+str(lnk['Config'][0]['srcID'])
         des_id = str(lnk['Config'][1]['destType'])+str(lnk['Config'][1]['destID'])
         print(src_id, des_id)
-        node_s = nodes[src_id+'-swi']
-        node_d = nodes[des_id+'-swi']
+        node_s = nodes['s-' + src_id]
+        node_d = nodes['s-' + des_id]
         net.addLink(node_s, node_d, bw=100)
         tcInfo.setdefault(src_id+'->'+des_id, {})
-        print(src_id+'-swi'+'->'+des_id+'-swi')
+        print('s-'+src_id+'->'+'s-'+des_id)
     #     break
 
     # Creating default controller to the network
