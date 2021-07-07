@@ -235,7 +235,7 @@ def mobileNet(name, configFile):
         swi_id = sat_id + '-swi'
         node2 = net.addSwitch(swi_id)
         nodes[swi_id] = node2
-        net.addLink(nodes[sat_id], nodes[swi_id])		
+        net.addLink(nodes[host_id], nodes[swi_id])		
         print(sat_id, host_id, swi_id)
 	
     for usr in usrs:
@@ -246,7 +246,7 @@ def mobileNet(name, configFile):
         swi_id = usr_id + '-swi'
         node2 = net.addSwitch(swi_id)
         nodes[swi_id] = node2
-        net.addLink(nodes[sat_id], nodes[swi_id])		
+        net.addLink(nodes[host_id], nodes[swi_id])		
         print(usr_id, host_id, swi_id)
 		
     # Creating links
@@ -258,6 +258,7 @@ def mobileNet(name, configFile):
         node_d = nodes[des_id+'-swi']
         net.addLink(node_s, node_d, bw=100)
         tcInfo.setdefault(src_id+'->'+des_id, {})
+		print(src_id+'-swi'+'->'+des_id+'-swi')
     #     break
 
     # Creating default controller to the network
