@@ -258,7 +258,7 @@ def mobileNet(name, configFile):
         node_d = nodes[des_id+'-swi']
         net.addLink(node_s, node_d, bw=100)
         tcInfo.setdefault(src_id+'->'+des_id, {})
-		print(src_id+'-swi'+'->'+des_id+'-swi')
+        print(src_id+'-swi'+'->'+des_id+'-swi')
     #     break
 
     # Creating default controller to the network
