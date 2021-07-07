@@ -230,7 +230,7 @@ def mobileNet(name, configFile):
     for sat in sats:
         sat_id = '1' + str(sat['satID'])
         host_id = sat_id + '-host'
-        node = net.addHost(host_id)
+        node = net.addHost(host_id, position = '50,150,0')
         nodes[host_id] = node
         swi_id = sat_id + '-swi'
         node2 = net.addSwitch(swi_id)
@@ -241,7 +241,7 @@ def mobileNet(name, configFile):
     for usr in usrs:
         usr_id = '0' + str(usr['ID'])
         host_id = usr_id + '-host'
-        node = net.addHost(host_id)
+        node = net.addHost(host_id, position = '50,150,0')
         nodes[host_id] = node
         swi_id = usr_id + '-swi'
         node2 = net.addSwitch(swi_id)
