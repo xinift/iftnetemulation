@@ -232,7 +232,7 @@ def mobileNet(name, configFile):
         host_id = sat_id + '-host'
         node = net.addHost(host_id)
         nodes[host_id] = node
-		swi_id = sat_id + '-swi'
+        swi_id = sat_id + '-swi'
         node2 = net.addSwitch(swi_id)
         nodes[swi_id] = node2
         net.addLink(nodes[sat_id], nodes[swi_id])		
